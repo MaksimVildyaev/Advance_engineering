@@ -1,0 +1,160 @@
+.box {
+   display: flex;
+   flex-wrap: wrap;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+   justify-content: flex-start;
+   padding-left: 10px;
+   padding-right: 10px;
+   padding-top: 10px;
+   padding-bottom: 10px;
+    /* border: 1px solid purple; */
+    background-color: #F5F5F5;
+    color: black;
+    height: 90vh;
+   
+}
+
+.table {
+   display: flex;
+   flex-direction: column;
+   justify-content: flex-start;
+   align-content: flex-start;
+   align-items: flex-start;
+   padding-left: 10px;
+   padding-right: 10px;
+   padding-top: 10px;
+   padding-bottom: 10px;
+   /* border: 1px solid red; */
+   color: black;
+   width: 1300px;
+   height:900px;
+}
+
+.header {
+     display: flex;
+   flex-wrap: wrap;
+   justify-content: center;
+   /* border: 1px solid green; */
+   color: black;
+   width: 1300px;
+   height:51px;
+}
+
+.nbr {
+    display: flex;
+   flex-wrap: wrap;
+   justify-content: center;
+   flex-direction: column;
+   justify-content: center;
+   padding-left: 10px;
+   padding-right: 10px;
+   padding-top: 10px;
+   padding-bottom: 10px;
+   border: 1px solid black;
+    width: 40px;
+    height:30px;
+    word-break: break-all;
+}
+
+.name {
+     display: flex;
+   flex-wrap: wrap;
+   justify-content: center;
+   flex-direction: column;
+   justify-content: center;
+   padding-left: 10px;
+   padding-right: 10px;
+   padding-top: 10px;
+   padding-bottom: 10px;
+   border: 1px solid black;
+    width: 180px;
+    height:30px;
+    word-break: break-all;
+    overflow-x: auto;
+}
+
+.addres {
+    display: flex;
+   flex-wrap: wrap;
+   justify-content: center;
+   flex-direction: column;
+   justify-content: center;
+   padding-left: 10px;
+   padding-right: 10px;
+   padding-top: 10px;
+   padding-bottom: 10px;
+   border: 1px solid black;
+    width: 220px;
+    height:30px;
+    word-break: break-all;
+    overflow-x: auto;
+}
+
+.date {
+    display: flex;
+   flex-wrap: wrap;
+   justify-content: center;
+   flex-direction: column;
+   justify-content: center;
+   padding-left: 10px;
+   padding-right: 10px;
+   padding-top: 10px;
+   padding-bottom: 10px;
+   border: 1px solid black;
+    width: 150px;
+    height:30px;
+    word-break: break-all;
+    overflow-x: auto;
+}
+
+.status {
+    display: flex;
+   flex-wrap: wrap;
+   justify-content: center;
+   flex-direction: column;
+   justify-content: center;
+   padding-left: 10px;
+   padding-right: 10px;
+   padding-top: 10px;
+   padding-bottom: 10px;
+   border: 1px solid black;
+    width: 150px;
+    height:30px;
+    word-break: break-all;
+    overflow-x: auto;
+}
+
+.coment {
+    display: flex;
+   flex-wrap: wrap;
+   justify-content: center;
+   flex-direction: column;
+   justify-content: center;
+   padding-left: 10px;
+   padding-right: 10px;
+   padding-top: 10px;
+   padding-bottom: 10px;
+    border: 1px solid black;
+     width: 220px;
+    height:30px;
+    word-break: break-all;
+    overflow-x: auto;
+}
+
+.buttons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    flex-direction: column;
+    justify-content: center;
+    /* border: 1px solid blue; */
+     width: 100px;
+    height:51px;
+    word-break: break-all;
+    position: relative;
+    left: 1200px;
+    bottom: 50px;
+    
+}

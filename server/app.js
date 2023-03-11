@@ -15,6 +15,7 @@ app.use(morgan('dev'));
 app.use(express.urlencoded({
   extended: true
 }));
+
 app.use(express.json());
 
 app.use((req, res, next) => {
@@ -32,6 +33,8 @@ app.use((req, res, next) => {
 
  const { PORT } = process.env;
 
+ const LogIn = require('./src/routes/loginRoute');
+
 
 const sessionConfig = {
   name: 'Test',
@@ -46,6 +49,8 @@ const sessionConfig = {
 };
 
 app.use(session(sessionConfig));
+
+app.use('/login', LogIn);
 
 app.listen(PORT, async () => {
   try {
