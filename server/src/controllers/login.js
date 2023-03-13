@@ -1,7 +1,7 @@
 const { User } = require('../../db/models');
 
 async function logIn  (req, res)  {
-   // console.log("REQ=======>", req.body);
+  //  console.log("REQ=======>", req.body);
    const { name, password } = req.body;
    try {
    
@@ -9,20 +9,25 @@ async function logIn  (req, res)  {
  
      if (user) {
       
-       const passCheck = await User.findOne( { password } );
-      
+       const passCheck = await User.findOne( {where: { password } });
+      // console.log('>>>>>>>>>>>>>>',passCheck);
        if (passCheck) {
          
-         req.session.userName = user.username;
+         req.session.userName = user.name;
+         req.session.userRole = user.role;
          req.session.save(() => {
           });
-          res.json(user);
-         //  console.log("RES====>", res.json(user));
+          res.json({
+            name: req.session.userName,
+            role: req.session.userRole,
+          });
+        //  console.log("RES====>", req.session.userName, req.session.userRole);
+
        } else {
-         res.json({ error: 'Неверный логин или пароль'})
+         res.json({ error: 'Неверный пароль'})
        }
      } else {
-      res.json({ error: 'Неверный логин или пароль'})
+      res.json({ error: 'Неверный логин'})
      }
    } catch (error) {
      res.send(`ERROR---> ${error}`);

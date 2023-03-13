@@ -13,7 +13,7 @@ export default function Log_in() {
   const [name, setName] = useState("");
   const [password, setPassword] = useState("");
   const [messege, setMessege] = useState("");
-
+  
   const nameHandler = (e) => {
     setName(e.target.value);
 
@@ -28,26 +28,30 @@ export default function Log_in() {
   const logInNow = async (e) => {
     e.preventDefault()
     try {
-      if (password.length < 8 && name.length === 0) {
+      if (password.length < 8 || name.length === 0) {
         setMessege("Пароль должен быть не менее 8 символов. Поле -ИМЯ- не может быть пустым.")
       } if (password.length >= 8 && name.length > 0) {
         e.preventDefault()
         dispatch(getLog(name, password));
       }  if (login.error) {
         setMessege(login.error)
-      } if (login.error === undefined) {
-        navigate('/orders');
-      }
+      } 
     } catch (error) {
 
     }
   };
 
+  useEffect(() => {
+    if (login.name.length > 0) {
+      navigate('/orders');
+    }
+  }, [login.name, navigate]);
+
 
   return (
     <div className={style.box}>
 
-      <form className={style.form}>
+      <div className={style.form}>
         <div className={style.messege}> <h4> {messege ? messege : "Заполните форму"} </h4> </div>
 
         <div className={style.inputdiv}>
@@ -74,7 +78,7 @@ export default function Log_in() {
 
         <button type='submit' className={style.button} onClick={logInNow} >Войти</button>
 
-      </form>
+      </div>
 
     </div>
   )

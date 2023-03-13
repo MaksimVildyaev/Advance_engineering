@@ -20,7 +20,7 @@ app.use(express.json());
 
 app.use((req, res, next) => {
    const accessList = [
-     'http://localhost:3000',
+     'http://localhost:3000', 'http://localhost:3001', 
    ];
    const origin = req.get('origin');
    if (accessList.includes(origin)) {
@@ -34,7 +34,9 @@ app.use((req, res, next) => {
  const { PORT } = process.env;
 
  const LogIn = require('./src/routes/loginRoute');
-
+ const LogOut = require('./src/routes/logoutRoute');
+ const AllOrders = require('./src/routes/ordersRoute');
+const NewOrders = require('./src/routes/newOrdersRoute');
 
 const sessionConfig = {
   name: 'Test',
@@ -51,8 +53,11 @@ const sessionConfig = {
 app.use(session(sessionConfig));
 
 app.use('/login', LogIn);
+app.use('/logout', LogOut);
+app.use('/allorders', AllOrders);
+app.use('/neworders', NewOrders);
 
-app.listen(PORT, async () => {
+app.listen(PORT || 3002, async () => {
   try {
     await sequelize.authenticate();
     console.log('Соединение с базой установлено!');

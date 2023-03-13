@@ -10,6 +10,12 @@ switch (type) {
       role: payload.role, 
       error: payload.error,
     };
+    case 'LOGOUT':
+      return { 
+        name: '', 
+        role: '', 
+        error: '',
+      };
     default:
       return state;
   }

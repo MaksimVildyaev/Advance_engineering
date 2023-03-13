@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react'
 import { Link, useNavigate } from 'react-router-dom';
 import style from './navStyle.module.css';
 import { useDispatch, useSelector } from 'react-redux'
-import { getLog } from '../../store/action/addLogIn_'
+import { getLogout } from '../../../src/store/action/addLogout';
 
 
 
@@ -12,23 +12,19 @@ export default function Navigation() {
   const login = useSelector((state) => state.logIn)
   const navigate = useNavigate();
   const dispatch = useDispatch();
-
+  console.log("in navigate", login);
 
   useEffect(() => {
     if (login.name?.length === 0) {
-      navigate('/login');
+      navigate('/');
     }
-
   }, [login.name, navigate])
 
-  const logOut = async (e) => {
-    
-    try {
-     dispatch(getLog(undefined, undefined));
-    } catch (error) {
-
-    }
-  };
+  const logoutHandler = async () => {
+    dispatch(getLogout());
+    console.log('WORCK');
+      navigate('/')
+     }
 
   return (
     <>
@@ -41,7 +37,7 @@ export default function Navigation() {
 
           <div className={style.right}>
             <div className={style.name}> {login.name}  </div>
-            <div>  <Link  className={style.textcolor} onClick={logOut} >Выйти</Link></div>
+            <div>  <Link  className={style.textcolor} onClick={logoutHandler} >Выйти</Link></div>
           </div>
         </div>
         ) : (<div></div>)}
