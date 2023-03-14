@@ -4,6 +4,7 @@ import React, { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom';
 import { getNewOrder } from '../../store/action/addNewOrder'
+import { getOrder } from '../../store/action/addOrders'
 
 export default function Add() {
   const login = useSelector((state) => state.logIn)
@@ -20,7 +21,7 @@ export default function Add() {
   const [addres, setAddres] = useState("");
   const [comment, setComment] = useState("");
   const [messege, setMessege] = useState("");
-  console.log(messege);
+
   const nameHandler = (e) => {
     setName(e.target.value);
 
@@ -38,13 +39,13 @@ export default function Add() {
 
   const newOrder = async (e) => {
     e.preventDefault()
-    console.log("BUTTON");
     try {
       if (name.length === 0 || addres.length === 0) {
-        setMessege("Запрлните поля ИМЯ и АДРЕС !!!")
+        setMessege("Запoлните поля ИМЯ и АДРЕС !!!")
       } if (name.length > 0 && addres.length > 0) {
         e.preventDefault()
         dispatch(getNewOrder(name, addres, comment));
+        dispatch(getOrder());
         navigate('/orders');
       }  
     } catch (error) {

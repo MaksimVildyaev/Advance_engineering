@@ -1,7 +1,6 @@
 const { User } = require('../../db/models');
 
 async function logIn  (req, res)  {
-  //  console.log("REQ=======>", req.body);
    const { name, password } = req.body;
    try {
    
@@ -10,9 +9,7 @@ async function logIn  (req, res)  {
      if (user) {
       
        const passCheck = await User.findOne( {where: { password } });
-      // console.log('>>>>>>>>>>>>>>',passCheck);
        if (passCheck) {
-         
          req.session.userName = user.name;
          req.session.userRole = user.role;
          req.session.save(() => {
@@ -21,7 +18,6 @@ async function logIn  (req, res)  {
             name: req.session.userName,
             role: req.session.userRole,
           });
-        //  console.log("RES====>", req.session.userName, req.session.userRole);
 
        } else {
          res.json({ error: 'Неверный пароль'})

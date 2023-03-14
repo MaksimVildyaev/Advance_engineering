@@ -36,9 +36,12 @@ app.use((req, res, next) => {
  const LogIn = require('./src/routes/loginRoute');
  const LogOut = require('./src/routes/logoutRoute');
  const AllOrders = require('./src/routes/ordersRoute');
-const NewOrders = require('./src/routes/newOrdersRoute');
+ const NewOrders = require('./src/routes/newOrdersRoute');
+ const StatusNew = require('./src/routes/statusNewRoute');
+ const StatusDone = require('./src/routes/StatusDoneRoute');
+ const DeleteOrder = require('./src/routes/orderDeleteRoute');
 
-const sessionConfig = {
+  const sessionConfig = {
   name: 'Test',
   store: new FileStore(),
   secret: 'SECRET',
@@ -56,6 +59,9 @@ app.use('/login', LogIn);
 app.use('/logout', LogOut);
 app.use('/allorders', AllOrders);
 app.use('/neworders', NewOrders);
+app.use('/statusnew', StatusNew);
+app.use('/statusdone', StatusDone);
+app.use('/deleteorder', DeleteOrder);
 
 app.listen(PORT || 3002, async () => {
   try {

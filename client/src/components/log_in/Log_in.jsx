@@ -2,12 +2,12 @@ import React, { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom';
 import { getLog } from '../../store/action/addLogIn_'
+import { getOrder } from '../../store/action/addOrders'
 import style from './logStyle.module.css';
 
 
 export default function Log_in() {
   const login = useSelector((state) => state.logIn)
-  console.log('LOGIN=====>', login);
   const dispatch = useDispatch();
 
   const [name, setName] = useState("");
@@ -33,6 +33,7 @@ export default function Log_in() {
       } if (password.length >= 8 && name.length > 0) {
         e.preventDefault()
         dispatch(getLog(name, password));
+        dispatch(getOrder());
       }  if (login.error) {
         setMessege(login.error)
       } 
@@ -46,8 +47,7 @@ export default function Log_in() {
       navigate('/orders');
     }
   }, [login.name, navigate]);
-
-
+  
   return (
     <div className={style.box}>
 
@@ -76,7 +76,7 @@ export default function Log_in() {
           />
         </div>
 
-        <button type='submit' className={style.button} onClick={logInNow} >Войти</button>
+        <button type='submit' className={style.button}  onClick={logInNow} >Войти</button>
 
       </div>
 

@@ -11,6 +11,5 @@ export const getLog = (name, password) => async (dispatch) => {
     body: JSON.stringify({ name, password }),
   });
   const res = await data1.json();
-  // console.log("res====>", res);
   dispatch(setLog(res));
 };

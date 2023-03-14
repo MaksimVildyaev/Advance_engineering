@@ -7,9 +7,24 @@ export const initState = {
   },
 
   newOrder : {
-    new: '',
+    name: '',
+    addres: '',
+    status: '',
+    comment: '',
+    createdAt: '',
   },
   
+  orders : {
+    name: '',
+    addres: '',
+    status: '',
+    comment: '',
+    createdAt: '',
+  },
+
+  status : [],
+
+  deleteOrder : [],
 
   }; 
   

@@ -11,6 +11,5 @@ export const getNewOrder = (name, addres, comment) => async (dispatch) => {
     body: JSON.stringify({ name, addres, comment }),
   });
   const res = await data1.json();
-  console.log("res====>", res);
   dispatch(setNewOrder(res));
 };

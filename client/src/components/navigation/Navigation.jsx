@@ -12,7 +12,6 @@ export default function Navigation() {
   const login = useSelector((state) => state.logIn)
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  console.log("in navigate", login);
 
   useEffect(() => {
     if (login.name?.length === 0) {
@@ -22,7 +21,6 @@ export default function Navigation() {
 
   const logoutHandler = async () => {
     dispatch(getLogout());
-    console.log('WORCK');
       navigate('/')
      }
 
